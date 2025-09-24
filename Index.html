@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up Example</title>
+    <style>
+        .fake-popup {
+            position: fixed;
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            background: url('devsycr-funnytown.gif') no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .popup-content {
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%; /* Adjust for mobile */
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="popup1" class="fake-popup">
+        <div class="popup-content">
+            <p>This website requests usage of cookies for optimal user experiences. optional</p>
+            <button onclick="closePopup('popup1', 'popup2')">accept</button>
+            <button onclick="closePopup('popup1', 'popup2')">continue without</button>
+        </div>
+    </div>
+
+    <div id="popup2" class="fake-popup">
+        <div class="popup-content">
+            <p>Your device is compatible with ai bot's user interface. Do you wish to continue?</p>
+            <button onclick="closePopup('popup2', 'popup3')">not at the moment</button>
+            <button onclick="closePopup('popup2', 'popup3')">continue</button>
+        </div>
+    </div>
+
+    <div id="popup3" class="fake-popup">
+        <div class="popup-content">
+            <p>do you consent to interaction with ai bot trained by the creator of this webpage?</p>
+            <button onclick="closePopup('popup3', 'popup4')">no such requirement necessary</button>
+        </div>
+    </div>
+
+    <div id="popup4" class="fake-popup">
+        <div class="popup-content">
+            <p>Ai bot request you to request for it's consent</p>
+            <button onclick="closePopup('popup4', 'popup5')">It's going to anyways, Next</button>
+        </div>
+    </div>
+
+    <div id="popup5" class="fake-popup">
+        <div class="popup-content">
+            <p>The ai bot data has now gained proper rigidity, full length, and max girth</p>
+            <button onclick="closePopup('popup5', 'popup6')">My device is ready to receive it's data</button>
+        </div>
+    </div>
+
+    <div id="popup6" class="fake-popup">
+        <div class="popup-content">
+            <p>Ai bot is currently having a premature database malfunction . Message from Ai bot: "apologies, this usually doesn't happen"</p>
+            <button onclick="closePopup('popup6', null)">it's getting late, you should probably go. I have work tomorrow.. yeah i gotta be there early too.. bye</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to show a pop-up
+        function showPopup(popupId) {
+            document.getElementById(popupId).style.display = 'block';
+            document.documentElement.requestFullscreen();
+        }
+
+        // Function to close a pop-up and open the next one
+        function closePopup(currentPopupId, nextPopupId) {
+            document.getElementById(currentPopupId).style.display = 'none';
+            if (nextPopupId) {
+                // Add a slight delay to make it more realistic
+                setTimeout(() => {
+                    showPopup(nextPopupId);
+                }, 500);
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Show the first pop-up when the page loads
+        window.onload = function() {
+            showPopup('popup1');
+        };
+    </script>
+</body>
+</html>
